@@ -1,12 +1,15 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import HealthBox from './Components/HealthComponent';
 
 function App() {
   return (
     <div>
-      <h1>Turn Autosave On</h1>
+      <HealthBox />
     </div>
   );
 }
 
-render(<App />, document.querySelector('#root'));
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);
