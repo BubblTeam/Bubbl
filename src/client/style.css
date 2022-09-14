@@ -1,0 +1,16 @@
+img{
+    text-align: center;
+    max-height: 100px;
+    cursor: pointer;
+  }
+
+.healthContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid rgb(22, 35, 68);
+  width: 15vw;
+  background-color: lightgrey;
+
+}

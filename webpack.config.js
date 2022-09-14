@@ -4,7 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/client/App.tsx',
+  entry: './src/client/app.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -30,6 +30,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/client/index.html',
       filename: './index.html',
+      inject: false,
     }),
     new CopyPlugin({
       patterns: [{ from: './src/client/style.css' }],
@@ -43,5 +44,7 @@ module.exports = {
       '/api': 'http://localhost:3000',
       secure: false,
     },
+    open: true,
+    hot: true,
   },
 };
