@@ -1,13 +1,30 @@
 {
-    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "airbnb"],
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "airbnb", "plugin:import/errors", "plugin:import/warnings", "plugin:import/typescript"],
     "parser": "@typescript-eslint/parser",
     "plugins": ["@typescript-eslint"],
     "root": true,
     "env": {
         "browser": true
     },
+    "ignorePatterns": ["dist/*"],
     "rules": {
         "@typescript-eslint/no-var-requires": 0,
-        "react/jsx-filename-extension": [1, { "extensions": [".tsx",".jsx"] }]
+        "no-undef": "off",
+        "no-unused-expressions":"off",
+        "arrow-body-style":"off",
+        "react/no-array-index-key":"off",
+        "react/jsx-filename-extension": [1, { "extensions": [".tsx",".jsx"] }],
+        "react/function-component-definition": [
+            2,
+            {
+              "namedComponents": ["arrow-function", "function-expression"],
+              "unnamedComponents": ["arrow-function",  "function-expression"]
+            }
+        ],
+        "import/extensions": [ "error", "ignorePackages", { "": "never", "js": "never", "jsx": "never", "ts": "never", "tsx": "never" } ],
+        "import/no-unresolved": [
+            2, 
+            { "caseSensitive": false }
+         ]
     }
 }

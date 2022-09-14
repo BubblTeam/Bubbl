@@ -1,15 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { createRoot } from 'react-dom/client';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './Store/store';
+import MenuContainer from './Containers/MenuContainer';
 import HealthBox from './Components/HealthComponent';
 
-function App() {
+const App = () => {
   return (
     <div>
+      <MenuContainer />
       <HealthBox />
     </div>
   );
-}
+};
 
-const root = createRoot(document.getElementById('root'));
-root.render(<App />);
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.querySelector('#root'),
+);
