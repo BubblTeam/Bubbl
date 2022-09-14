@@ -1,12 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './Store/store';
+import MenuContainer from './Containers/MenuContainer';
 
-function App() {
+const App = () => {
   return (
     <div>
-      <h1>Turn Autosave On</h1>
+      <MenuContainer />
     </div>
   );
-}
+};
 
-render(<App />, document.querySelector('#root'));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.querySelector('#root'),
+);
