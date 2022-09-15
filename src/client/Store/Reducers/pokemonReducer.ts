@@ -18,6 +18,7 @@ const pokemonReducer = (state = initialState, action: ReduxActions) => {
       };
     }
     case types.PLAYER_ATTACK: {
+      //  Reducer for when either player attacks.
       let damage;
       const { moveName, player } = action.payload;
       if (player === 2 && state.opponentHealth === 0) return;
@@ -46,6 +47,7 @@ const pokemonReducer = (state = initialState, action: ReduxActions) => {
         };
     }
     case types.RESET_STATUS: {
+      //  Reset status of the status component
       if (state.playerHealth === 0) {
         return {
           ...state,
@@ -64,6 +66,7 @@ const pokemonReducer = (state = initialState, action: ReduxActions) => {
       };
     }
     case types.GAME_OVER: {
+      //  Change status message to game over
       return {
         ...state,
         statusMessage: (state.playerHealth === 0) ? 'Squirtle has fainted!' : 'Mew Two has fainted!',
