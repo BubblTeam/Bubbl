@@ -9,6 +9,7 @@ const ActionContainer = (props: ActionContainerProps) => {
   const dispatch = useDispatch();
   const { player, isGameOver } = props;
 
+  //  Handling event for key presses. Moves in a 2x2 grid. Press Enter to enact
   const handleKeyDown = (e: KeyboardEvent) => {
     if (player === 2 || isGameOver) {
       return;
@@ -47,6 +48,7 @@ const ActionContainer = (props: ActionContainerProps) => {
     }
   };
 
+  //  Key event listener. Remove event listener whent this component is unmounted
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -54,9 +56,9 @@ const ActionContainer = (props: ActionContainerProps) => {
     };
   }, [selectedAction, player]);
 
+  //  When player 2, automate mew two moves
   useEffect(() => {
     if (player === 2) {
-      console.log('NOT GAMEOVER');
       setTimeout(() => {
         dispatch(playerAttack(
           {
@@ -80,8 +82,8 @@ const ActionContainer = (props: ActionContainerProps) => {
 
   ActionsList.forEach((elem, idx) => {
     (elem === selectedAction)
-      ? RenderActions.push(<ActionComponent key={`action-${idx}`} moveName={`ACTIVE ${elem}`} />)
-      : RenderActions.push(<ActionComponent key={`action-${idx}`} moveName={`${elem}`} />);
+      ? RenderActions.push(<ActionComponent key={`action-${idx}`} id="Active" moveName={`${elem}`} />)
+      : RenderActions.push(<ActionComponent key={`action-${idx}`} id="Inactive" moveName={`${elem}`} />);
   });
 
   return (

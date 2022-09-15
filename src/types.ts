@@ -1,5 +1,6 @@
 export type ActionProps = {
   moveName: string
+  id: string
 };
 
 export type Actions = 'Tackle' | 'Flame Thrower' | 'Hydro Pump' | 'Surf';
