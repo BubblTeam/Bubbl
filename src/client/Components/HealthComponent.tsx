@@ -4,7 +4,7 @@ import { HealthBarType } from '../../types';
 const HealthBox = (props: HealthBarType) => {
   const { health, name } = props;
   return (
-    <div className="healthContainer">
+    <div className="HealthComponent">
       <h2 className="name">{name}</h2>
       <div className="level">Level 50</div>
       <div className="hpBar">

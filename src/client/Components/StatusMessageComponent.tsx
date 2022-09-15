@@ -4,7 +4,7 @@ import { StatusMessageProps } from '../../types';
 const StatusMessageComponent = (props: StatusMessageProps) => {
   const { statusMessage } = props;
   return (
-    <div>
+    <div className="StatusMessageComponent">
       { statusMessage }
     </div>
   );

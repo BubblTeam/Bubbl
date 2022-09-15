@@ -20,6 +20,7 @@ const pokemonReducer = (state = initialState, action: ReduxActions) => {
     case types.PLAYER_ATTACK: {
       let damage;
       const { moveName, player } = action.payload;
+      if (player === 2 && state.opponentHealth === 0) return;
       if (moveName === 'Tackle') {
         damage = 50;
       } else if (moveName === 'Flame Thrower') {
@@ -45,6 +46,17 @@ const pokemonReducer = (state = initialState, action: ReduxActions) => {
         };
     }
     case types.RESET_STATUS: {
+      if (state.playerHealth === 0) {
+        return {
+          ...state,
+          statusMessage: 'Squirtle has fainted!',
+        };
+      } else if (state.opponentHealth === 0) {
+        return {
+          ...state,
+          statusMessage: 'Mew Two has fainted!',
+        };
+      }
       return {
         ...state,
         currentTurn: 1,
@@ -54,7 +66,7 @@ const pokemonReducer = (state = initialState, action: ReduxActions) => {
     case types.GAME_OVER: {
       return {
         ...state,
-        statusMessage: (state.currentTurn === 1) ? 'Squirtle has fainted!' : 'Mew Two has fainted!',
+        statusMessage: (state.playerHealth === 0) ? 'Squirtle has fainted!' : 'Mew Two has fainted!',
       };
     }
     default: {
