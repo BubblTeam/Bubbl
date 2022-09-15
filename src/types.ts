@@ -5,7 +5,8 @@ export type ActionProps = {
 export type Actions = 'Tackle' | 'Flame Thrower' | 'Hydro Pump' | 'Surf';
 
 export type ActionContainerProps = {
-  player: 1 | 2
+  player: 1 | 2,
+  isGameOver: boolean
 };
 
 export type StatusMessageProps = {
@@ -42,3 +43,7 @@ export type HealthBarType = {
   health: number
   name: string
 }
+
+export type MenuContainerType = {
+  isGameOver:boolean
+};
