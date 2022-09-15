@@ -33,16 +33,12 @@ module.exports = {
       inject: false,
     }),
     new CopyPlugin({
-      patterns: [{ from: './src/client/style.css' }],
+      patterns: [{ from: './src/client/style.css' }, { from: 'src/client/assets', to: 'assets' }],
     }),
   ],
   devServer: {
     static: {
       directory: path.join(__dirname, './dist'),
-    },
-    proxy: {
-      '/api': 'http://localhost:3000',
-      secure: false,
     },
     open: true,
     hot: true,

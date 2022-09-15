@@ -3,15 +3,14 @@ import { useDispatch } from 'react-redux';
 import ActionComponent from '../Components/ActionComponent';
 import { ActionContainerProps, Actions } from '../../types';
 import { resetStatus, playerAttack } from '../Store/actions';
-import './styles.css';
 
 const ActionContainer = (props: ActionContainerProps) => {
   const [selectedAction, changeAction] = useState<Actions>('Tackle');
   const dispatch = useDispatch();
-  const { player } = props;
+  const { player, isGameOver } = props;
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (player === 2) {
+    if (player === 2 || isGameOver) {
       return;
     } else if (e.key === 'Enter') {
       dispatch(playerAttack(
@@ -57,7 +56,7 @@ const ActionContainer = (props: ActionContainerProps) => {
 
   useEffect(() => {
     if (player === 2) {
-      console.log('HELLO');
+      console.log('NOT GAMEOVER');
       setTimeout(() => {
         dispatch(playerAttack(
           {
@@ -86,7 +85,7 @@ const ActionContainer = (props: ActionContainerProps) => {
   });
 
   return (
-    <div className={`actionOnTurn${player}`}>
+    <div className="ActionContainer" id={`ActionOnTurn${player}`}>
       {RenderActions}
     </div>
   );

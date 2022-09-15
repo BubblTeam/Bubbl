@@ -1,10 +1,66 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-image: url("./assets/background.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.GameOver {
+  z-index: 1000;
+  height: 30em;
+  width: 50em;
+
+  position: fixed;
+  top: 25%;
+  left: 35%;
+  background-color: aliceblue;
+}
+
 img{
     text-align: center;
     max-height: 100px;
     cursor: pointer;
-  }
+}
 
-.healthContainer {
+.MewTwoContainer {
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.MewTwoSprite {
+  width: 300px;
+  margin-left: auto;
+  margin-right: 300px;
+  padding-bottom: 50px;
+  scale: 1.5;
+}
+
+.MewTwo {
+  scale: 1.5;
+}
+
+.SquirtleContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.SquirtleSprite {
+  z-index: 500;
+  position: relative;
+  width: 300px;
+  scale: 1.5;
+}
+
+.Squirtle {
+  scale: 1.5;
+}
+
+.HealthComponent {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -12,5 +68,29 @@ img{
   border: 1px solid rgb(22, 35, 68);
   width: 15vw;
   background-color: lightgrey;
+}
 
+.MenuContainer {
+  width: 100vw;
+  height: 30vh;
+  padding: 2em;
+
+  position: fixed;
+  z-index: 750 ;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: row;
+
+  background-color: aquamarine;
+}
+
+.StatusMessageComponent {
+  width: 50vw;
+}
+
+.ActionContainer {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-row: auto;
 }

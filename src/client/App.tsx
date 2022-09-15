@@ -22,10 +22,24 @@ const App = () => {
 
   return (
     <div>
-      {isGameOver ? <div>GAMEOVER</div> : ''}
-      <MenuContainer />
-      <HealthBox health={playerHealth} name="Squirtle" />
-      <HealthBox health={opponentHealth} name="Mew Two" />
+      {isGameOver && <div className="GameOver">GAMEOVER</div> }
+      <div className="BattleContainer">
+        <div className="MewTwoContainer">
+          <HealthBox health={opponentHealth} name="Mew Two" />
+          <div className="MewTwoSprite">
+            <img src="./assets/mewtwo.gif" className="MewTwo" />
+            <img src="./assets/battleground.png" className="TerrainMewTwo" />
+          </div>
+        </div>
+        <div className="SquirtleContainer">
+          <HealthBox health={playerHealth} name="Squirtle" />
+          <div className="SquirtleSprite">
+            <img src="./assets/squirtle.gif" className="Squirtle" />
+            <img src="./assets/battleground.png" className="TerrainSquirtle" />
+          </div>
+        </div>
+      </div>
+      <MenuContainer isGameOver={isGameOver} />
     </div>
   );
 };
