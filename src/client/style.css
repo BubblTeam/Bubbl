@@ -4,6 +4,13 @@ body {
   background-image: url("./assets/background.png");
   background-repeat: no-repeat;
   background-size: 100%;
+  background-position-y: -200px;
+}
+
+.logo {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .GameOver {
@@ -24,7 +31,8 @@ img{
 }
 
 .MewTwoContainer {
-  width: 100vw;
+  margin: 10px;
+  width: 90vw;
 
   display: flex;
   flex-direction: column;
@@ -40,23 +48,33 @@ img{
 
 .MewTwo {
   scale: 1.5;
+  position: relative;
+  left: 90px;
+  top: 40px;
+  z-index: 500;
 }
 
 .SquirtleContainer {
-  width: 100vw;
+  width: 98vw;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .SquirtleSprite {
-  z-index: 500;
   position: relative;
-  width: 300px;
+  margin-right: 80%;
+  width: 200px;
   scale: 1.5;
 }
 
 .Squirtle {
+  position: relative;
+  left: 100px;
+  top: 45px;
+  z-index: 500;
   scale: 1.5;
 }
 
@@ -82,15 +100,26 @@ img{
   display: flex;
   flex-direction: row;
 
-  background-color: aquamarine;
+  background-color: gray;
 }
 
 .StatusMessageComponent {
   width: 50vw;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 40px;
+  text-align: center;
+  padding-top: 150px;
 }
 
 .ActionContainer {
+  width: 50vw;
   display: grid;
-  grid-template-columns: 200px 200px;
+  grid-template-columns: 1fr 1fr;
   grid-row: auto;
+}
+
+.ActionComponent button {
+  width: 400px;
+  height: 150px;
 }
