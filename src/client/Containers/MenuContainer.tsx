@@ -6,10 +6,13 @@ import ActionContainer from './ActionContainer';
 
 const MenuContainer = () => {
   const statusMessage = useSelector((state: Reducers) => state.pokemonReducer.statusMessage);
+  const currentTurn = useSelector((state: Reducers) => state.pokemonReducer.currentTurn);
+
+  console.log(currentTurn);
   return (
     <div>
       <StatusMessageComponent statusMessage={statusMessage} />
-      <ActionContainer />
+      <ActionContainer player={currentTurn} />
     </div>
   );
 };

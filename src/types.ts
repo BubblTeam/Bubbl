@@ -5,7 +5,7 @@ export type ActionProps = {
 export type Actions = 'Tackle' | 'Flame Thrower' | 'Hydro Pump' | 'Surf';
 
 export type ActionContainerProps = {
-  statusUpdate: (status: string) => void
+  player: 1 | 2
 };
 
 export type StatusMessageProps = {
@@ -16,15 +16,29 @@ export type StatusType = {
   message: string
 };
 
+export type AttackType = {
+  message: string
+  moveName: string
+  player: number
+}
+
 export type InitialState = {
-  statusMessage: string
+  statusMessage: string;
+  playerHealth: number;
+  opponentHealth: number;
+  currentTurn: 1 | 2;
 };
 
 export type ReduxActions = {
-  type: 'UPDATE_STATUS' | 'UPDATE_TURN' | 'RESET_STATUS'
-  payload: StatusType
+  type: string
+  payload: StatusType | AttackType
 }
 
 export type Reducers = {
   pokemonReducer: InitialState
+}
+
+export type HealthBarType = {
+  health: number
+  name: string
 }

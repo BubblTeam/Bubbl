@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ActionComponent from '../Components/ActionComponent';
-import { Actions, ActionContainerProps, Reducers } from '../../types';
-import { updateStatus, resetStatus } from '../Store/actions';
+import { ActionContainerProps, Actions } from '../../types';
+import { resetStatus, playerAttack } from '../Store/actions';
 import './styles.css';
 
-const ActionContainer = () => {
+const ActionContainer = (props: ActionContainerProps) => {
   const [selectedAction, changeAction] = useState<Actions>('Tackle');
   const dispatch = useDispatch();
+  const { player } = props;
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      dispatch(updateStatus({ message: `Squirtle used ${selectedAction}!` }));
-      setTimeout(() => dispatch(resetStatus()), 5000);
+    if (player === 2) {
+      return;
+    } else if (e.key === 'Enter') {
+      dispatch(playerAttack(
+        {
+          message: `Squirtle used ${selectedAction}!`,
+          moveName: selectedAction,
+          player: 1,
+        },
+      ));
     } else if (selectedAction === 'Tackle') {
       if (e.key === 'ArrowDown') {
         changeAction('Hydro Pump');
@@ -45,7 +53,28 @@ const ActionContainer = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [selectedAction]);
+  }, [selectedAction, player]);
+
+  useEffect(() => {
+    if (player === 2) {
+      console.log('HELLO');
+      setTimeout(() => {
+        dispatch(playerAttack(
+          {
+            message: 'Mew Two used Psybeam!',
+            moveName: 'Psybeam',
+            player: 2,
+          },
+        ));
+        playerAttack({
+          message: 'Mew Two used Psybeam!',
+          moveName: 'Psybeam',
+          player: 2,
+        });
+        setTimeout(() => dispatch(resetStatus()), 2500);
+      }, 2500);
+    }
+  }, [player]);
 
   const ActionsList: Actions[] = ['Tackle', 'Flame Thrower', 'Hydro Pump', 'Surf'];
   const RenderActions: JSX.Element[] = [];
@@ -57,7 +86,7 @@ const ActionContainer = () => {
   });
 
   return (
-    <div>
+    <div className={`actionOnTurn${player}`}>
       {RenderActions}
     </div>
   );

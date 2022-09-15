@@ -1,15 +1,19 @@
 import React from 'react';
+import { HealthBarType } from '../../types';
 
-export default function HealthBox() {
+const HealthBox = (props: HealthBarType) => {
+  const { health, name } = props;
   return (
     <div className="healthContainer">
-      <h2 className="name">Squirtle</h2>
-      <div className="level">Level 1</div>
+      <h2 className="name">{name}</h2>
+      <div className="level">Level 50</div>
       <div className="hpBar">
-        <progress max="500" value="300" />
-        <span>500</span>
+        <progress max="500" value={health} />
+        <span>{health}</span>
         /500
       </div>
     </div>
   );
-}
+};
+
+export default HealthBox;
