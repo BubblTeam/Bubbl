@@ -1,0 +1,138 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-image: url("./assets/background.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: -200px;
+}
+
+.logo {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.GameOver {
+  z-index: 1000;
+  height: 30em;
+  width: 50em;
+
+  position: fixed;
+  top: 25%;
+  left: 35%;
+  background-color: aliceblue;
+}
+
+img{
+    text-align: center;
+    max-height: 100px;
+    cursor: pointer;
+}
+
+.MewTwoContainer {
+  margin: 10px;
+  width: 90vw;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.MewTwoSprite {
+  width: 300px;
+  margin-left: auto;
+  margin-right: 300px;
+  padding-bottom: 50px;
+  scale: 1.5;
+}
+
+.MewTwo {
+  scale: 1.5;
+  position: relative;
+  left: 90px;
+  top: 40px;
+  z-index: 500;
+}
+
+.SquirtleContainer {
+  width: 98vw;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.SquirtleSprite {
+  position: relative;
+  margin-right: 80%;
+  width: 200px;
+  scale: 1.5;
+}
+
+.Squirtle {
+  position: relative;
+  left: 100px;
+  top: 45px;
+  z-index: 500;
+  scale: 1.5;
+}
+
+.HealthComponent {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 20px 20px 40px 40px;
+  border: 1px solid rgb(22, 35, 68);
+  width: 15vw;
+  background-color: lightgrey;
+}
+
+.MenuContainer {
+  width: 100vw;
+  height: 30vh;
+  padding: 2em;
+
+  position: fixed;
+  z-index: 750 ;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: row;
+
+  background-color: gray;
+}
+
+.StatusMessageComponent {
+  width: 50vw;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 40px;
+  text-align: center;
+  padding-top: 150px;
+}
+
+.ActionContainer {
+  width: 45vw;
+  padding: 20px;
+  padding-left: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: auto;
+}
+
+.ActionComponent button {
+  width: 20vw;
+  height: 13vh;
+  border-radius: 20px;
+  font-size: 60px;
+}
+
+#Active {
+  background-color: tomato;
+}
+
+#Inactive {
+  background-color: cadetblue;
+}
